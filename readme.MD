@@ -74,7 +74,7 @@ GitLab Runner / локальный pipeline
 
 * GitLab CI / локальный pipeline
 
----
+---d
 
 ## 🎯 Цели проекта
 
