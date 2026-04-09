@@ -1,11 +1,34 @@
 services:
   my_app:
+    hostname: My-service
     build: .
   nginx:
+    hostname: nginx-proxy
     image: nginx:latest
     ports:
       - "8080:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf:/etc/nginx/conf.d/my-app.conf
     depends_on:
       - my_app
+  grafana:
+    hostname: Grafana-monitoring
+    image: grafana/grafana:latest
+    ports: 
+      - "9000:3000"
+    environment: 
+      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - TZ=${SYSTEM_TIMEZONE:-Europe/Moscow}
+    volumes:
+      - ./datasources.yaml:/etc/grafana/provisioning/datasources.yaml
+  loki:
+    hostname: loki
+    image: grafana/loki:latest
+    ports:
+      - "3200:3000"
+    environment:
+      TZ: ${SYSTEM_TIMEZONE:-Europe/Moscow}
+    command: -config.file=/etc/loki/local-config.yaml
+
