@@ -6,7 +6,7 @@ services:
     hostname: nginx-proxy
     image: nginx:latest
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/my-app.conf
     depends_on:

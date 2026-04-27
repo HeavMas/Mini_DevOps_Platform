@@ -153,15 +153,14 @@ docker-compose up -d
 
 ### Задачи:
 
-* [ ] Создать backend (FastAPI / Node.js)
-* [ ] Написать Dockerfile
-* [ ] Поднять PostgreSQL
-* [ ] Настроить docker-compose
-* [ ] Настроить Nginx reverse proxy
-* [ ] Подключить Prometheus
-* [ ] Подключить Node Exporter
-* [ ] Поднять Grafana
-* [ ] Создать первый dashboard
+* [+] Создать backend (FastAPI / Node.js)
+* [+] Написать Dockerfile
+* [+] Настроить docker-compose
+* [+] Настроить Nginx reverse proxy
+* [+] Подключить Prometheus
+* [+] Подключить Node Exporter
+* [+] Поднять Grafana
+* [+] Создать первый dashboard
 
 ### Результат:
 
